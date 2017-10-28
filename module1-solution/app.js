@@ -17,9 +17,9 @@ function LunchCheckController ($scope) {
     var items = $scope.lunchItems.split(',').filter(
       function (item) {
         return (item.trim().length > 0 && item);
-      });
+      }
+    );
 
-    console.log(items);
     if (items.length === 0) {
       $scope.message = 'Please enter data first';
       $scope.textBoxStyle = 'has-error';
@@ -33,9 +33,7 @@ function LunchCheckController ($scope) {
       $scope.textBoxStyle = 'has-success';
       $scope.messageStyle = 'text-success';
     }
-
   }
-
 }
 
 })();
