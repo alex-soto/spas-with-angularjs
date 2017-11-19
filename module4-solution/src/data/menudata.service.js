@@ -3,36 +3,33 @@
     .service('MenuDataService', MenuDataService);
 
   MenuDataService.$inject = ['$http', 'ApiBasePath'];
-  
+
   function MenuDataService($http, ApiBasePath){
     var service = this;
 
-    this.getAllCategories = function () {
+    service.getAllCategories = function () {
       return $http({
         url: ApiBasePath + '/categories.json'
       })
       .then(function (response) {
-        console.log(response);
+        return response.data;
       }, function (error) {
-        console.log(error);
+        return error;
       });
 
     };
 
-    this.getItemsForCategory = function (categoryShortName) {
-      // menu_items.json?category=
-      var params = {};
-      if (categoryShortName){
-        params.category = categoryShortName;
-      }
+    service.getItemsForCategory = function (categoryShortName) {
       return $http({
         url: ApiBasePath + '/menu_items.json',
-        params: params
+        params: {
+          'category': categoryShortName
+        }
       })
       .then(function (response) {
-        console.log(response);
+        return response.data;
       }, function (error) {
-        console.log(error);
+        return error;
       });
     };
   } // MenuDataService
