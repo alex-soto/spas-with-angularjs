@@ -5,3 +5,4 @@ browser-sync command: `browser-sync start --server --directory --files "**/*"`
 2. Module 2 Coding Assignment: https://alex-soto.github.io/spas-with-angularjs/module2-solution/
 3. Module 3 Coding Assignment: https://alex-soto.github.io/spas-with-angularjs/module3-solution/
 4. Module 4 Coding Assignment: https://alex-soto.github.io/spas-with-angularjs/module4-solution/
+4. Module 4 Coding Assignment: https://alex-soto.github.io/spas-with-angularjs/module5-solution/
