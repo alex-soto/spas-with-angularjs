@@ -113,6 +113,14 @@ h3.menu-item-title {
 }
 /* END SINGLE CATEGORY PAGE */
 
+/* SIGN-UP PAGE */
+.form-container {
+  background-color: #505050
+}
+form input {
+  color: #000;
+}
+/* END SIGN-UP PAGE */
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {

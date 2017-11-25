@@ -5,8 +5,8 @@ angular.module('common')
 .service('MenuService', MenuService);
 
 
-MenuService.$inject = ['$http', 'ApiPath'];
-function MenuService($http, ApiPath) {
+MenuService.$inject = ['$http', 'ApiPath', '$q'];
+function MenuService($http, ApiPath, $q) {
   var service = this;
 
   service.getCategories = function () {
@@ -25,6 +25,20 @@ function MenuService($http, ApiPath) {
     return $http.get(ApiPath + '/menu_items.json', config).then(function (response) {
       return response.data;
     });
+  };
+
+  service.getMenuItemByName = function(shortName) {
+    if (shortName) {
+      return $http.get(ApiPath + '/menu_items/' + shortName + '.json')
+        .then(function(response) {
+          return response.data;
+        }, function(error) {
+          return $q.reject('No such menu number exists');
+        });
+    } else {
+      return $q.reject('Menu item short name must be provided');
+    }
+
   };
 
 }
