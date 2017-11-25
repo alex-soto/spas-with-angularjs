@@ -3,24 +3,26 @@
 angular.module('public')
 .controller('SignUpController', SignUpController)
 
-SignUpController.$inject = ['MenuService'];
+SignUpController.$inject = ['MenuService', 'UserInfoService'];
 
-function SignUpController(MenuService){
+function SignUpController(MenuService, UserInfoService){
   var ctrl = this;
   ctrl.error = '';
+  ctrl.success = '';
 
   ctrl.resetError = function() {
     ctrl.error = '';
   };
 
   ctrl.submit = function () {
-    console.log(ctrl.user);
     MenuService.getMenuItemByName(ctrl.user.favorite)
       .then(function(response) {
-        console.log(response);
+        ctrl.user.favoriteData = response;
+        UserInfoService.setUserInfo(ctrl.user);
+        ctrl.success = 'Your information has been saved';
       }, function(error) {
         ctrl.error = error;
-        console.log(error);
+
       });
   };
   /* first name, last name, email address, and phone number.
