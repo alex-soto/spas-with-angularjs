@@ -8,8 +8,6 @@
 
     service.setUserInfo = function (userInfo) {
       service.userInfo = userInfo;
-      console.log('userInfoService: user info set.')
-      console.log(service.userInfo);
     };
 
     service.getUserInfo = function () {
